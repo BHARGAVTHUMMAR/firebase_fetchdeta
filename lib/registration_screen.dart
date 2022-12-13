@@ -24,9 +24,6 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
   var uploadpath;
   var url;
 
-  FirebaseStorage storage = FirebaseStorage.instance;
-  Reference storageReference = FirebaseStorage.instance.ref();
-
   // string for displaying the error Message
   String? errorMessage;
 
@@ -444,12 +441,12 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
     FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
     await firebaseFirestore.collection("users").doc(user.user!.uid).set({
       "first name": firstNameEditingController.text,
-      "Secound name": secondNameEditingController.text,
+      "Second name": secondNameEditingController.text,
       "email": emailEditingController.text,
       "image": imgFile!.path,
       "Password": passwordEditingController.text,
       "uid": FirebaseAuth.instance.currentUser!.uid,
-      "phonenumber": phoneEditingController.text,
+      "PhoneNumber": phoneEditingController.text,
     });
     Fluttertoast.showToast(msg: "Account created successfully:)");
     Navigator.pushAndRemoveUntil(
